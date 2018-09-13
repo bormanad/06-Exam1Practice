@@ -293,7 +293,7 @@ def run_test_problem0c():
 
 
 def problem0c(circle, n, window):
-    
+
 
     """
     See   problem0c_picture.pdf   in this project for pictures
