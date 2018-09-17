@@ -103,15 +103,35 @@ def run_test_problem3a():
     # your choice), add 1 more test case of your own choosing.
     # ------------------------------------------------------------------
 
+    # Window 4:
+    title = ('Problem3a Test 5: Start at (20,50), 14 lines')
+    window4 = rg.RoseWindow(400, 250, title)
+
     # Test 5 (it is on window 3):
-    point = rg.Point(10,20)
-    expected
+    point = rg.Point(10,30)
+    expected = 140
+    answer = problem3a(window4, point, 14)
+    print()
+    print('Test 5 expected:', expected)
+    print('         actual:', answer)
+    window4.close_on_mouse_click()
 
 
 def problem3a(window, point, n):
     total = 0
     for k in range(n):
-        point2 = rg.Point
+        point2 = rg.Point(point.x, point.y + 50)
+        line = rg.Line(point, point2)
+        line.thickness = 1 + (2*k)
+        if line.thickness > 14:
+            line.thickness = 13
+        line.attach_to(window)
+        window.render()
+        point.x = point.x +20
+        point.y = point.y + 10
+        total = total + line.thickness
+    return total
+
 
     """
     See   problem3a_picture.pdf   in this project for pictures
@@ -145,7 +165,7 @@ def problem3a(window, point, n):
         :type n:      int
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # ------------------------------------------------------------------
     # ------------------------------------------------------------------
@@ -173,6 +193,14 @@ def run_test_problem3b():
 
 
 def problem3b(m, point1):
+    window = rg.RoseWindow(400,650)
+    total = 0
+    for k in range(m):
+        total = total + problem3a(window, rg.Point(point1.x, point1.y + (60*k)), 3 + (2*k))
+    window.close_on_mouse_click()
+    return total
+
+
     """
     See   problem3b_picture.pdf   in this project for pictures
     that may help you better understand the following specification:
@@ -209,7 +237,7 @@ def problem3b(m, point1):
         :type point1: rg.Point
     """
     # ------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ####################################################################
