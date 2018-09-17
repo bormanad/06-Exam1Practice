@@ -109,6 +109,10 @@ def run_test_problem3a():
 
 
 def problem3a(window, point, n):
+    total = 0
+    for k in range(n):
+        point2 = rg.Point
+
     """
     See   problem3a_picture.pdf   in this project for pictures
     that may help you better understand the following specification:
